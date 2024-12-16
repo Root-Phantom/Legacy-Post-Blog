@@ -10,8 +10,8 @@ $statement = $pdo->prepare("SELECT * FROM posts WHERE id = :id");
 $statement->bindParam(':id', $id, PDO::PARAM_INT);
 $statement->execute();
 $post = $statement->fetch();
-$title = $post['title'];
-$body = $post['body'];
+$title = htmlspecialchars_decode($post['title']);
+$body = htmlspecialchars_decode($post['body']);
 ?>
 
 <!DOCTYPE html>

@@ -16,8 +16,8 @@ if (!$post) {
     exit;
 }
 
-$title = $post['title'];
-$body = $post['body'];
+$title = htmlspecialchars_decode($post['title']);
+$body = htmlspecialchars_decode($post['body']);
 
 $isPutRequest = $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['_method']) && $_POST['_method'] === 'PUT';
 
