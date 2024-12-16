@@ -14,3 +14,4 @@ create table posts
 );
 -- sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
 -- sudo apt install php-pdo php-mysql
+-- sudo systemctl restart mysql
