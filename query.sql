@@ -1,3 +1,6 @@
+CREATE USER 'blog'@'%' IDENTIFIED BY '5819';
+GRANT ALL PRIVILEGES ON blog.* TO 'blog'@'%';
+FLUSH PRIVILEGES;
 CREATE DATABASE blog;
 USE blog;
 create table posts
