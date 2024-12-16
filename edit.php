@@ -16,8 +16,9 @@ if (!$post) {
     exit;
 }
 
-$title = htmlspecialchars_decode($post['title']);
-$body = htmlspecialchars_decode($post['body']);
+$title = htmlspecialchars_decode($post['title'],ENT_QUOTES);
+$body = htmlspecialchars_decode($post['body'],ENT_QUOTES);
+
 
 $isPutRequest = $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['_method']) && $_POST['_method'] === 'PUT';
 
@@ -74,7 +75,7 @@ if ($isPutRequest) {
 
             <div class="mb-4">
                 <label for="title" class="block text-gray-700 font-medium">Title</label>
-                <input type="text" id="title" name="title" value="<?= htmlspecialchars(isset($_POST['title']) ? $_POST['title'] : $post['title']) ?>"
+                <input type="text" id="title" name="title" value="<?= htmlspecialchars_decode(isset($_POST['title']) ? $_POST['title'] : $post['title']) ?>"
                        placeholder="Enter the post title"
                        class="w-full px-4 py-2 border rounded focus:ring focus:ring-blue-300 focus:outline-none">
                 <?php if (isset($errors['title'])): ?>
@@ -85,7 +86,7 @@ if ($isPutRequest) {
             <div class="mb-4">
                 <label for="body" class="block text-gray-700 font-medium">Body</label>
                 <textarea id="body" name="body" placeholder="Enter the post body"
-                          class="w-full px-4 py-2 border rounded focus:ring focus:ring-blue-300 focus:outline-none"><?= htmlspecialchars(isset($_POST['body']) ? $_POST['body'] : $post['body']) ?></textarea>
+                          class="w-full px-4 py-2 border rounded focus:ring focus:ring-blue-300 focus:outline-none"><?= htmlspecialchars_decode(isset($_POST['body']) ? $_POST['body'] : $post['body']) ?></textarea>
                 <?php if (isset($errors['body'])): ?>
                     <p class="text-red-500 text-sm mt-1"><?= $errors['body'] ?></p>
                 <?php endif; ?>

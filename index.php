@@ -33,14 +33,14 @@ $posts = $statement->fetchAll();
 <div class="container mx-auto p-4 mt-4">
     <?php foreach ($posts as $post): ?>
         <div class="bg-white rounded-lg shadow-md p-6 mt-6">
-            <a href="edit.php?id=<?= htmlspecialchars($post['id']) ?>" class="block">
+            <a href="edit.php?id=<?= htmlspecialchars_decode($post['id']) ?>" class="block">
                 <div class="p-4">
                     <h2 class="text-xl font-semibold">
-                        <?= htmlspecialchars($post['title']) ?>
+                        <?= htmlspecialchars_decode($post['title']) ?>
                     </h2>
-                    <p class="text-gray-700 text-lg mt-4"><?= nl2br(htmlspecialchars($post['body'])) ?></p>
+                    <p class="text-gray-700 text-lg mt-4"><?= nl2br(htmlspecialchars_decode($post['body'])) ?></p>
                     <p class="text-sm text-gray-500 mt-4">
-                        Last edited: <?= htmlspecialchars($post['updated_at']) ?>
+                        Last edited: <?= htmlspecialchars_decode($post['updated_at']) ?>
                     </p>
                 </div>
             </a>
