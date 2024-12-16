@@ -12,3 +12,4 @@ create table posts
     created_at timestamp default CURRENT_TIMESTAMP null,
     updated_at timestamp default CURRENT_TIMESTAMP null on update CURRENT_TIMESTAMP
 );
+-- sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
