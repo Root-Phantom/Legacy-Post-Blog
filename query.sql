@@ -13,3 +13,4 @@ create table posts
     updated_at timestamp default CURRENT_TIMESTAMP null on update CURRENT_TIMESTAMP
 );
 -- sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
+-- sudo apt install php-pdo php-mysql
